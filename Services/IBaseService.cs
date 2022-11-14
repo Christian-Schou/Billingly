@@ -5,21 +5,13 @@ using Billingly.Entities;
 
 namespace Billingly.Services
 {
-    public interface IBaseService<T> where T : BaseEntity
+    public interface IBaseService<T>
     {
-        Task<IQueryable<T>> GetAllAsync();
-
-        Task<IQueryable<T>> All(params Expression<Func<T, Object>>[] includeProperties);
-
-        Task<T> FindAsync(long id);
-
-        Task<T> FindAsync(Int64 id, params Expression<Func<T, object>>[] includeProperties);
-
-        void InsertAsync(T entity);
-
-        void UpdateAsync(T entity, int id);
-
-        void DeleteAsync(T entity);
+        IQueryable<T> FindAll();
+        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
+        void Create(T entity);
+        void Update(T entity);
+        void Delete(T entity);
     }
 }
 
