@@ -7,8 +7,13 @@
     <UserSecretsId>aspnet-Billingly-E6214286-D9A4-45F4-8108-0CE6B81648AE</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Billingly' " />
   <ItemGroup>
     <None Remove="Entities\" />
+    <None Remove="Entities\Application\" />
+    <None Remove="Data\Repositories\" />
+    <None Remove="Services\" />
+    <None Remove="Data\Repositories\Base\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -24,5 +29,9 @@
 
   <ItemGroup>
     <Folder Include="Entities\" />
+    <Folder Include="Entities\Application\" />
+    <Folder Include="Data\Repositories\" />
+    <Folder Include="Services\" />
+    <Folder Include="Data\Repositories\Base\" />
   </ItemGroup>
 </Project>
